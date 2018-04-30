@@ -1,0 +1,19 @@
+server:
+  port: 8081
+
+kafka:
+  consumer:
+    bootstrap: localhost:9092
+    group: MessageApp
+    topic: messages
+
+cassandra:
+  contactPoints: localhost
+  port: 9042
+  keyspace: voting
+  username:
+  password:
+  replicationStrategy: SimpleStrategy
+  replicationFactor: 1
+
+
