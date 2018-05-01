@@ -28,7 +28,7 @@ public class KafkaProducerTest {
     private String s = "{\"id\":\"StringId\",\"type\":\"TESTABLE\",\"senderId\":\"SEND_SENDER\"}";
 
     @Test
-    public void testSafeEventProducerPNG() {
+    public void testMOEventProducer() {
         ms.process(new MessageOriented("StringId","TESTABLE","SEND_SENDER"));
         try {
             Thread.sleep(1000);
