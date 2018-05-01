@@ -4,7 +4,6 @@ package com.producer;
  * Created by busracanak on 30/04/18.
  */
 
-
 import com.producer.entity.MessageOriented;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,19 +20,41 @@ public class MOEntityTest {
 
     @Test
     public void shouldReturnMOId(){
-        assertEquals("id", mo.getId());
+        MessageOriented test = mock(MessageOriented.class);
+        when(test.getId()).thenReturn("iid");
+        assertEquals(test.getId(), "iid");
     }
 
     @Test
     public void shouldReturnMOType(){
-        assertEquals("type", mo.getType());
+        MessageOriented test = mock(MessageOriented.class);
+        when(test.getType()).thenReturn("typee");
+        assertEquals(test.getType(), "typee");
     }
 
     @Test
     public void shouldReturnMOSender(){
         MessageOriented test = mock(MessageOriented.class);
-        when(test.getSenderId()).thenReturn("senderId");
-        assertEquals(test.getSenderId(), "senderId");
+        when(test.getSenderId()).thenReturn("sender");
+        assertEquals(test.getSenderId(), "sender");
+    }
+
+    @Test
+    public void shouldSetSender(){
+        mo.setSenderId("SEND");
+        assertEquals(mo.getSenderId(), "SEND");
+    }
+
+    @Test
+    public void shouldSetId(){
+        mo.setId("ID");
+        assertEquals(mo.getId(), "ID");
+    }
+
+    @Test
+    public void shouldSetType(){
+        mo.setType("TY");
+        assertEquals(mo.getType(), "TY");
     }
 
     @Test

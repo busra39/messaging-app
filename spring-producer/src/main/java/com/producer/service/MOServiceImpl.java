@@ -1,6 +1,5 @@
 package com.producer.service;
 
-
 import com.producer.entity.MessageOriented;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.slf4j.Logger;
@@ -26,7 +25,8 @@ public class MOServiceImpl implements MOService{
                     recordMetadata.topic(), recordMetadata.partition(), recordMetadata.offset(), mo);
             return true;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            LOGGER.info("Exception : ", e.toString());
+            return false;
         }
     }
 }
