@@ -9,12 +9,14 @@ import com.producer.entity.MessageOriented;
 public class MOController {
 
     @Autowired
-    private MOService MOService;
+    MOService ms;
 
     @PostMapping("/message")
     public String sendMessage(@RequestBody MessageOriented mo) {
-        if(this.MOService.process(mo))
+        //MOEventProducer m = MOEventProducer.getInstance();
+        if(ms.process(mo))
             return "Received";
         return "ERROR";
     }
+
 }

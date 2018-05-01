@@ -23,7 +23,7 @@ public class KafkaProducerConfig {
 
     @Bean
     public ProducerFactory<String, MessageOriented> producerFactory() {
-        return new DefaultKafkaProducerFactory<>(producerConfigs(), stringKeySerializer(), workUnitJsonSerializer());
+        return new DefaultKafkaProducerFactory<>(producerConfigs(), stringKeySerializer(), messageJsonSerializer());
     }
 
     @Bean
@@ -46,7 +46,7 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public Serializer workUnitJsonSerializer() {
+    public Serializer messageJsonSerializer() {
         return new JsonSerializer();
     }
 }

@@ -3,6 +3,10 @@ package com.producer.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 @Component
 @ConfigurationProperties(prefix = "kafka.producer")
 public class KafkaProducerProperties {
@@ -26,3 +30,4 @@ public class KafkaProducerProperties {
         this.topic = topic;
     }
 }
+
