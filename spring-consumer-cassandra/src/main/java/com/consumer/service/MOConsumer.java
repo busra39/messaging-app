@@ -16,7 +16,7 @@ public class MOConsumer {
     private static final Logger log = LoggerFactory.getLogger(MOConsumer.class);
 
     @Autowired
-    Session session;
+    CassandraHandler cassandra;
 
     @KafkaListener(topics = "messages")
     public void onReceiving(MessageOriented mo, @Header(KafkaHeaders.OFFSET) Integer offset,
@@ -25,7 +25,6 @@ public class MOConsumer {
         log.info("topic = {}, partition = {}, offset = {}, MO = {}",
                 topic, partition, offset, mo);
 
-        session.executeAsync("insert into votes (name,count)values('"+mo.getType()+"',"+mo.getId()+")");
-        final ResultSet rows = session.execute("SELECT * FROM votes");
+        cassandra.writeOne(mo);
     }
 }

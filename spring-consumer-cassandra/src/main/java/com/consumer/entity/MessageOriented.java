@@ -4,11 +4,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
 
+import java.sql.Timestamp;
+
 public class MessageOriented {
 
     private String id;
     private String type;
     private String senderId;
+    private Timestamp ts;
 
     @JsonCreator
     public MessageOriented(@JsonProperty("id") String id, @JsonProperty("type") String type,
@@ -40,6 +43,15 @@ public class MessageOriented {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public void setTs(Timestamp ts) {
+        this.ts = ts;
+    }
+
+    public Timestamp getTs() {
+
+        return ts;
     }
 
     @Override

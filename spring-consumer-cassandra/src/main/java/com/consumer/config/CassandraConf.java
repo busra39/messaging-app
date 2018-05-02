@@ -4,7 +4,6 @@ package com.consumer.config;
  * Created by busracanak on 24/04/18.
  */
 
-
 import javax.annotation.PreDestroy;
 
 import org.slf4j.Logger;
@@ -14,7 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-    import com.datastax.driver.core.Cluster;
+import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Host;
 import com.datastax.driver.core.Metadata;
 import com.datastax.driver.core.Session;
@@ -22,7 +21,6 @@ import com.datastax.driver.core.Session;
 @Configuration
 @Profile("default")
 public class CassandraConf {
-
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CassandraConf.class);
 
@@ -49,27 +47,18 @@ public class CassandraConf {
 
     private Cluster cluster;
 
-
-
     @Bean
     public Session session(){
-        LOGGER.info("session busra");
         final Session session = cluster().connect();
         createKeyspaceIfNotExists(session);
         useKeyspace(session);
-
         return session;
     }
 
     private Cluster cluster(){
         LOGGER.info("Creating cluster with contact points: {} and port: {}", contactPoints, port);
-
-
-        LOGGER.info("Createdd");
         cluster = Cluster.builder().addContactPoints(contactPoints).build();
-        ///metadata(cluster);
-        LOGGER.info("Createdad");
-
+        metadata(cluster);
         return cluster;
     }
 
@@ -91,11 +80,13 @@ public class CassandraConf {
         session.execute(String.format("USE %s;", keyspace));
     }
 
+    public String getKeyspace() {
+        return keyspace;
+    }
+
     private void useKeyspace(final Session session) {
         session.execute(String.format("USE %s;", keyspace));
     }
-
-
 
 
     @PreDestroy
