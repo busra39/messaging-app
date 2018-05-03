@@ -1,16 +1,26 @@
 package com.consumer.entity;
 
+import com.datastax.driver.core.DataType;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
+import org.springframework.data.cassandra.core.mapping.CassandraType;
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class MessageOriented {
+@Table("message")
+public class MessageOriented implements Serializable{
 
+
+    @PrimaryKey
+    @CassandraType(type = DataType.Name.TEXT)
     private String id;
     private String type;
     private String senderId;
+    @CassandraType(type = DataType.Name.TIMESTAMP)
     private Timestamp ts;
 
     @JsonCreator
@@ -62,4 +72,5 @@ public class MessageOriented {
                 .add("senderId", senderId)
                 .toString();
     }
+
 }

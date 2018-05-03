@@ -1,7 +1,5 @@
 package com.consumer.service;
 
-import com.datastax.driver.core.ResultSet;
-import com.datastax.driver.core.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +13,12 @@ import com.consumer.entity.MessageOriented;
 public class MOConsumer {
     private static final Logger log = LoggerFactory.getLogger(MOConsumer.class);
 
+    private MOService moService;
+
     @Autowired
-    CassandraHandler cassandra;
+    public void setMOService(MOService moService) {
+        this.moService = moService;
+    }
 
     @KafkaListener(topics = "messages")
     public void onReceiving(MessageOriented mo, @Header(KafkaHeaders.OFFSET) Integer offset,
@@ -25,6 +27,6 @@ public class MOConsumer {
         log.info("topic = {}, partition = {}, offset = {}, MO = {}",
                 topic, partition, offset, mo);
 
-        cassandra.writeOne(mo);
+        moService.save(mo);
     }
 }

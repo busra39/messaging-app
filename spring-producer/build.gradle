@@ -1,6 +1,5 @@
 jar {
 	baseName = project.name
-	version = '1.2.0-M1'
 }
 repositories { jcenter() }
-dependencies {testCompile 'org.mockito:mockito-core:2.7.22' }
+dependencies { testCompile 'org.mockito:mockito-core:2.7.22' }

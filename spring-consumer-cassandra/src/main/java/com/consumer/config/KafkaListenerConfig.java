@@ -58,4 +58,5 @@ public class KafkaListenerConfig {
     public Deserializer messageJsonValueDeserializer() {
         return new JsonDeserializer(MessageOriented.class);
     }
+
 }

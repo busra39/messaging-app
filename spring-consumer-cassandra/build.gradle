@@ -3,18 +3,3 @@ jar {
 }
 
 
-dependencies {
-	compile 'org.springframework.data:spring-data-jpa:2.0.6.RELEASE'
-	compile('org.springframework.boot:spring-boot-starter-data-cassandra')
-	compile 'com.datastax.cassandra:cassandra-driver-core:3.0.0-alpha5'
-	compile 'com.datastax.cassandra:cassandra-driver-mapping:3.0.0-alpha5'
-	compile 'org.springframework.batch:spring-batch-core:4.0.1.RELEASE'// https://mvnrepository.com/artifact/javax.persistence/persistence-api
-	compile group: 'javax.persistence', name: 'persistence-api', version: '1.0'
-	// https://mvnrepository.com/artifact/org.webjars/angular-chart.js
-	compile group: 'org.webjars', name: 'angular-chart.js', version: '0.5.3'
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile 'junit:junit:4.12'
-	testCompile('org.springframework.kafka:spring-kafka-test')
-	testCompile('log4j:log4j:1.2.17')
-}
-

@@ -8,12 +8,6 @@ kafka:
     topic: messages
 
 cassandra:
-  contactPoints: localhost
-  port: 9042
-  keyspace: messaging
-  username:
-  password:
-  replicationStrategy: SimpleStrategy
-  replicationFactor: 1
+  keyspace: messagingSpace
 
 

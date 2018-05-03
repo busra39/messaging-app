@@ -13,7 +13,6 @@ public class MOController {
 
     @PostMapping("/message")
     public String sendMessage(@RequestBody MessageOriented mo) {
-        //MOEventProducer m = MOEventProducer.getInstance();
         if(ms.process(mo))
             return "Received";
         return "ERROR";

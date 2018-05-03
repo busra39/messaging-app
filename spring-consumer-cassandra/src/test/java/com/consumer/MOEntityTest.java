@@ -4,7 +4,6 @@ package com.consumer;
  * Created by busracanak on 30/04/18.
  */
 
-
 import com.consumer.entity.MessageOriented;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +11,6 @@ import org.junit.Test;
 import java.sql.Timestamp;
 import java.time.Instant;
 
-import static org.apache.tomcat.jni.Time.now;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;

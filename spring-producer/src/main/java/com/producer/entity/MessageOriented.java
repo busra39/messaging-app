@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
 
-public class MessageOriented {
+import java.io.Serializable;
+
+public class MessageOriented implements Serializable {
 
     private String id;
     private String type;
