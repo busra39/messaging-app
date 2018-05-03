@@ -9,6 +9,7 @@ import com.producer.service.MOService;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class KafkaProducerTest {
 
     private String s = "{\"id\":\"StringId\",\"type\":\"TESTABLE\",\"senderId\":\"SEND_SENDER\"}";
 
-    @Test
+    @Before
     public void testMOEventProducer() {
         ms.process(new MessageOriented("StringId","TESTABLE","SEND_SENDER"));
         try {
