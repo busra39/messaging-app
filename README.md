@@ -17,6 +17,6 @@ The message is being sent to Kafka in order. Topic : "messages"<br />
 Then consumer writes the received message to the cassandra. KeySpace: messagingspace, Table: message<br />
 (one by one. no batch operations or ordering)<br />
 
-Chart displays the total amount of the messages according to message types. <br />(from the first message to the current time)
+Chart displays the total amount of the messages according to message types using "/list" endpoint. <br />(from the first message to the current time)
 (no time selections)<br />
 ![Alt text](chart.png?raw=true "Title")
